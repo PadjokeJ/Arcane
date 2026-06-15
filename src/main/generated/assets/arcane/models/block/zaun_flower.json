@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cross_emissive",
+  "textures": {
+    "cross": "arcane:block/zaun_flower",
+    "cross_emissive": "arcane:block/zaun_flower_emissive"
+  }
+}
