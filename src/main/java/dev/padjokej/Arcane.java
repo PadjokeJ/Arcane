@@ -2,19 +2,22 @@ package dev.padjokej;
 
 import com.jcraft.jorbis.Block;
 import dev.padjokej.registry.ModBlocks;
+import dev.padjokej.shimmer.worldgen.ShimmerWorldGenerator;
+import dev.padjokej.shimmer.worldgen.ShimmerWorldPlacedFeatures;
 import net.fabricmc.api.ModInitializer;
 
+import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
+import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.tags.BiomeTags;
+import net.minecraft.world.level.levelgen.GenerationStep;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class Arcane implements ModInitializer {
 	public static final String MOD_ID = "arcane";
 
-	// This logger is used to write text to the console and the log file.
-	// It is considered best practice to use your mod id as the logger's name.
-	// That way, it's clear which mod wrote info, warnings, and errors.
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
 	public static Identifier id(String id) {
@@ -23,12 +26,9 @@ public class Arcane implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		// This code runs as soon as Minecraft is in a mod-load-ready state.
-		// However, some things (like resources) may still be uninitialized.
-		// Proceed with mild caution.
-
 		LOGGER.info("Initialize " + MOD_ID);
 
 		ModBlocks.registerAll();
+		ShimmerWorldGenerator.generateShimmerPlants();
 	}
 }
