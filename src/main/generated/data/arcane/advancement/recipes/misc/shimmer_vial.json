@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "arcane:shimmer_vial"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_zaun_flower": {
+      "conditions": {
+        "items": [
+          {
+            "items": "arcane:zaun_flower"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_zaun_flower"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "arcane:shimmer_vial"
+    ]
+  }
+}

@@ -7,9 +7,9 @@ import net.minecraft.core.registries.Registries;
 
 import java.util.concurrent.CompletableFuture;
 
-public class RegistryProvider extends FabricDynamicRegistryProvider {
-    public RegistryProvider(FabricPackOutput output,
-                            CompletableFuture<HolderLookup.Provider> registriesFuture) {
+public class ArcaneRegistryProvider extends FabricDynamicRegistryProvider {
+    public ArcaneRegistryProvider(FabricPackOutput output,
+                                  CompletableFuture<HolderLookup.Provider> registriesFuture) {
         super(output, registriesFuture);
     }
 

@@ -2,6 +2,7 @@ package dev.padjokej;
 
 import com.jcraft.jorbis.Block;
 import dev.padjokej.registry.ModBlocks;
+import dev.padjokej.registry.ModItems;
 import dev.padjokej.shimmer.worldgen.ShimmerWorldGenerator;
 import dev.padjokej.shimmer.worldgen.ShimmerWorldPlacedFeatures;
 import net.fabricmc.api.ModInitializer;
@@ -29,6 +30,8 @@ public class Arcane implements ModInitializer {
 		LOGGER.info("Initialize " + MOD_ID);
 
 		ModBlocks.registerAll();
+		ModItems.registerAll();
+		
 		ShimmerWorldGenerator.generateShimmerPlants();
 	}
 }

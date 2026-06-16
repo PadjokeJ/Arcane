@@ -1,13 +1,15 @@
 package dev.padjokej.datagen;
 
 import dev.padjokej.registry.ModBlocks;
+import dev.padjokej.registry.ModItems;
 import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider;
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.minecraft.client.data.models.BlockModelGenerators;
 import net.minecraft.client.data.models.ItemModelGenerators;
+import net.minecraft.client.data.models.model.ModelTemplates;
 
-public class ModelGenerator extends FabricModelProvider {
-    public ModelGenerator(FabricPackOutput output) {
+public class ArcaneModelGenerator extends FabricModelProvider {
+    public ArcaneModelGenerator(FabricPackOutput output) {
         super(output);
     }
 
@@ -19,7 +21,7 @@ public class ModelGenerator extends FabricModelProvider {
 
     @Override
     public void generateItemModels(ItemModelGenerators itemModelGenerators) {
-
+        itemModelGenerators.generateFlatItem(ModItems.SHIMMER_VIAL, ModelTemplates.FLAT_ITEM);
     }
 
     @Override

@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "arcane:zaun_flower",
+    "minecraft:glass_bottle"
+  ],
+  "result": {
+    "id": "arcane:shimmer_vial"
+  }
+}
