@@ -1,5 +1,6 @@
 package dev.padjokej;
 
+import dev.padjokej.datagen.LootTableProvider;
 import dev.padjokej.datagen.ModelGenerator;
 import dev.padjokej.datagen.RegistryProvider;
 import dev.padjokej.shimmer.worldgen.ShimmerWorldConfiguredFeatures;
@@ -16,6 +17,7 @@ public class ArcaneDataGenerator implements DataGeneratorEntrypoint {
 
         pack.addProvider(ModelGenerator::new);
         pack.addProvider(RegistryProvider::new);
+        pack.addProvider(LootTableProvider::new);
     }
 
     @Override
