@@ -31,7 +31,7 @@ public class Arcane implements ModInitializer {
 
 		ModBlocks.registerAll();
 		ModItems.registerAll();
-		
+
 		ShimmerWorldGenerator.generateShimmerPlants();
 	}
 }

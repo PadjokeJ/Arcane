@@ -1,9 +1,8 @@
 package dev.padjokej;
 
-import dev.padjokej.datagen.ArcaneRecipeProvider;
-import dev.padjokej.datagen.ArcaneLootTableProvider;
-import dev.padjokej.datagen.ArcaneModelGenerator;
-import dev.padjokej.datagen.ArcaneRegistryProvider;
+import dev.padjokej.datagen.*;
+import dev.padjokej.datagen.language.ArcaneEnglishProvider;
+import dev.padjokej.datagen.language.ArcaneFrenchProvider;
 import dev.padjokej.shimmer.worldgen.ShimmerWorldConfiguredFeatures;
 import dev.padjokej.shimmer.worldgen.ShimmerWorldPlacedFeatures;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
@@ -20,6 +19,9 @@ public class ArcaneDataGenerator implements DataGeneratorEntrypoint {
         pack.addProvider(ArcaneRegistryProvider::new);
         pack.addProvider(ArcaneLootTableProvider::new);
         pack.addProvider(ArcaneRecipeProvider::new);
+
+        pack.addProvider(ArcaneEnglishProvider::new);
+        pack.addProvider(ArcaneFrenchProvider::new);
     }
 
     @Override
