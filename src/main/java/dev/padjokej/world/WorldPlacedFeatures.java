@@ -1,4 +1,4 @@
-package dev.padjokej.shimmer.worldgen;
+package dev.padjokej.world;
 
 import dev.padjokej.Arcane;
 import net.minecraft.core.Holder;
@@ -16,7 +16,7 @@ import net.minecraft.world.level.levelgen.placement.*;
 
 import java.util.List;
 
-public class ShimmerWorldPlacedFeatures {
+public class WorldPlacedFeatures {
     public static final ResourceKey<PlacedFeature> ZAUN_FLOWER_PATCH_PLACED_KEY = registerResourceKey("zaun_flower_patch_placed");
 
 
@@ -39,7 +39,7 @@ public class ShimmerWorldPlacedFeatures {
     public static void configure(BootstrapContext<PlacedFeature> context) {
         HolderGetter<ConfiguredFeature<?, ?>> configuredFeatures = context.lookup(Registries.CONFIGURED_FEATURE);
 
-        register(context, ZAUN_FLOWER_PATCH_PLACED_KEY, configuredFeatures.getOrThrow(ShimmerWorldConfiguredFeatures.ZAUN_FLOWER_PATCH),
+        register(context, ZAUN_FLOWER_PATCH_PLACED_KEY, configuredFeatures.getOrThrow(WorldConfiguredFeatures.ZAUN_FLOWER_PATCH),
                 List.of(
                         CountPlacement.of(4),
                         BiomeFilter.biome(),

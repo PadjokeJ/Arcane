@@ -1,18 +1,11 @@
 package dev.padjokej;
 
-import com.jcraft.jorbis.Block;
 import dev.padjokej.registry.ModBlocks;
 import dev.padjokej.registry.ModItems;
-import dev.padjokej.shimmer.worldgen.ShimmerWorldGenerator;
-import dev.padjokej.shimmer.worldgen.ShimmerWorldPlacedFeatures;
+import dev.padjokej.world.gen.WorldGenerator;
 import net.fabricmc.api.ModInitializer;
 
-import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
-import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.minecraft.resources.Identifier;
-import net.minecraft.resources.ResourceKey;
-import net.minecraft.tags.BiomeTags;
-import net.minecraft.world.level.levelgen.GenerationStep;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -32,6 +25,6 @@ public class Arcane implements ModInitializer {
 		ModBlocks.registerAll();
 		ModItems.registerAll();
 
-		ShimmerWorldGenerator.generateShimmerPlants();
+		WorldGenerator.generateShimmerPlants();
 	}
 }

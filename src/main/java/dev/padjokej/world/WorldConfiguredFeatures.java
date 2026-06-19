@@ -1,4 +1,4 @@
-package dev.padjokej.shimmer.worldgen;
+package dev.padjokej.world;
 
 import dev.padjokej.Arcane;
 import dev.padjokej.registry.ModBlocks;
@@ -19,7 +19,7 @@ import net.minecraft.world.level.levelgen.feature.configurations.VegetationPatch
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.placement.CaveSurface;
 
-public class ShimmerWorldConfiguredFeatures {
+public class WorldConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> ZAUN_FLOWER_PATCH = registerResourceKey("zaun_flower_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> ZAUN_FLOWER_SINGLE = registerResourceKey("zaun_flower_single");
 

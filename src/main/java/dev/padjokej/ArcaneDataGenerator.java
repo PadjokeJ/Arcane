@@ -3,8 +3,8 @@ package dev.padjokej;
 import dev.padjokej.datagen.*;
 import dev.padjokej.datagen.language.ArcaneEnglishProvider;
 import dev.padjokej.datagen.language.ArcaneFrenchProvider;
-import dev.padjokej.shimmer.worldgen.ShimmerWorldConfiguredFeatures;
-import dev.padjokej.shimmer.worldgen.ShimmerWorldPlacedFeatures;
+import dev.padjokej.world.WorldConfiguredFeatures;
+import dev.padjokej.world.WorldPlacedFeatures;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.minecraft.core.RegistrySetBuilder;
@@ -26,7 +26,7 @@ public class ArcaneDataGenerator implements DataGeneratorEntrypoint {
 
     @Override
     public void buildRegistry(RegistrySetBuilder registryBuilder) {
-        registryBuilder.add(Registries.CONFIGURED_FEATURE, ShimmerWorldConfiguredFeatures::configure);
-        registryBuilder.add(Registries.PLACED_FEATURE, ShimmerWorldPlacedFeatures::configure);
+        registryBuilder.add(Registries.CONFIGURED_FEATURE, WorldConfiguredFeatures::configure);
+        registryBuilder.add(Registries.PLACED_FEATURE, WorldPlacedFeatures::configure);
     }
 }
