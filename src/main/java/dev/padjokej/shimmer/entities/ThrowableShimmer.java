@@ -3,7 +3,6 @@ package dev.padjokej.shimmer.entities;
 import dev.padjokej.registry.ModEntities;
 import dev.padjokej.registry.ModItems;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
@@ -65,9 +64,14 @@ public class ThrowableShimmer extends ThrowableItemProjectile {
     @Override
     protected void onHit(HitResult hitResult) {
         super.onHit(hitResult);
-        
+
         if (level() instanceof ServerLevel) {
             this.discard();
         }
+    }
+
+    @Override
+    public boolean fireImmune() {
+        return true;
     }
 }
