@@ -12,23 +12,23 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class Arcane implements ModInitializer {
-	public static final String MOD_ID = "arcane";
+    public static final String MOD_ID = "arcane";
 
-	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
+    public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
-	public static Identifier id(String id) {
-		return Identifier.fromNamespaceAndPath(MOD_ID, id);
-	}
+    public static Identifier id(String id) {
+        return Identifier.fromNamespaceAndPath(MOD_ID, id);
+    }
 
-	@Override
-	public void onInitialize() {
-		LOGGER.info("Initialize " + MOD_ID);
+    @Override
+    public void onInitialize() {
+        LOGGER.info("Initialize " + MOD_ID);
 
-		ModBlocks.registerAll();
-		ModItems.registerAll();
-		ModEffects.registerAll();
-		ModEntities.registerAll();
+        ModBlocks.registerAll();
+        ModItems.registerAll();
+        ModEffects.registerAll();
+        ModEntities.registerAll();
 
-		WorldGenerator.generateShimmerPlants();
-	}
+        WorldGenerator.generateShimmerPlants();
+    }
 }

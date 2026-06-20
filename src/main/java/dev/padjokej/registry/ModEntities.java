@@ -2,7 +2,6 @@ package dev.padjokej.registry;
 
 import dev.padjokej.Arcane;
 import dev.padjokej.shimmer.entities.ThrowableShimmer;
-import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;

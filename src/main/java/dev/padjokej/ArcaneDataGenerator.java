@@ -1,6 +1,9 @@
 package dev.padjokej;
 
-import dev.padjokej.datagen.*;
+import dev.padjokej.datagen.ArcaneLootTableProvider;
+import dev.padjokej.datagen.ArcaneModelGenerator;
+import dev.padjokej.datagen.ArcaneRecipeProvider;
+import dev.padjokej.datagen.ArcaneRegistryProvider;
 import dev.padjokej.datagen.language.ArcaneEnglishProvider;
 import dev.padjokej.datagen.language.ArcaneFrenchProvider;
 import dev.padjokej.world.WorldConfiguredFeatures;

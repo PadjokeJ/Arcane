@@ -1,7 +1,6 @@
 package dev.padjokej.shimmer.effects;
 
 import dev.padjokej.Arcane;
-import net.minecraft.client.Minecraft;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.TickRateManager;
 import net.minecraft.world.effect.MobEffect;
