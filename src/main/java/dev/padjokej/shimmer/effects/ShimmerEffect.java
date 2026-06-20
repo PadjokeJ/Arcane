@@ -1,6 +1,7 @@
 package dev.padjokej.shimmer.effects;
 
 import dev.padjokej.Arcane;
+import net.minecraft.client.Minecraft;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.TickRateManager;
 import net.minecraft.world.effect.MobEffect;
@@ -25,7 +26,6 @@ public class ShimmerEffect extends MobEffect {
         addAttributeModifier(Attributes.BLOCK_BREAK_SPEED, Arcane.id("shimmer_fastmine"), 0.15, AttributeModifier.Operation.ADD_MULTIPLIED_BASE);
         addAttributeModifier(Attributes.ATTACK_DAMAGE, Arcane.id("shimmer_damage"), 0.25, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL);
     }
-
 
     @Override
     public void onEffectAdded(LivingEntity entity, int amplifier) {
