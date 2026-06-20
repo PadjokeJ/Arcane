@@ -1,9 +1,6 @@
 package dev.padjokej;
 
-import dev.padjokej.registry.ModBlocks;
-import dev.padjokej.registry.ModEffects;
-import dev.padjokej.registry.ModEntities;
-import dev.padjokej.registry.ModItems;
+import dev.padjokej.registry.*;
 import dev.padjokej.world.gen.WorldGenerator;
 import net.fabricmc.api.ModInitializer;
 
@@ -28,6 +25,7 @@ public class Arcane implements ModInitializer {
         ModItems.registerAll();
         ModEffects.registerAll();
         ModEntities.registerAll();
+        ModParticles.registerAll();
 
         WorldGenerator.generateShimmerPlants();
     }

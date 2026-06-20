@@ -31,6 +31,13 @@ public class ArcaneRecipeProvider extends FabricRecipeProvider {
                         .requires(Items.GLASS_BOTTLE)
                         .unlockedBy(getHasName(ModBlocks.ZAUN_FLOWER_BLOCK), has(ModBlocks.ZAUN_FLOWER_BLOCK))
                         .save(output);
+
+                shapeless(RecipeCategory.COMBAT, ModItems.CHEMTECH_BOMB)
+                        .requires(ModBlocks.ZAUN_FLOWER_BLOCK)
+                        .requires(Items.GUNPOWDER)
+                        .requires(Items.IRON_INGOT)
+                        .unlockedBy(getHasName(ModBlocks.ZAUN_FLOWER_BLOCK), has(ModBlocks.ZAUN_FLOWER_BLOCK))
+                        .save(output);
             }
         };
     }

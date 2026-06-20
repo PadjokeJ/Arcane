@@ -17,6 +17,7 @@ public class ArcaneEnglishProvider extends FabricLanguageProvider {
 
     @Override
     public void generateTranslations(HolderLookup.Provider registryLookup, TranslationBuilder translationBuilder) {
+        translationBuilder.add(ModItems.CHEMTECH_BOMB, "Chemtech Bomb");
         translationBuilder.add(ModItems.SHIMMER_VIAL, "Shimmer Vial");
         translationBuilder.add(ModBlocks.ZAUN_FLOWER_BLOCK, "Zaun Flower");
         translationBuilder.add(ModEffects.SHIMMER.value(), "Shimmer");

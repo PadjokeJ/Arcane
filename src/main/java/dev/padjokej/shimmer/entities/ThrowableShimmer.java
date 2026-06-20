@@ -1,7 +1,9 @@
 package dev.padjokej.shimmer.entities;
 
+import dev.padjokej.Arcane;
 import dev.padjokej.registry.ModEntities;
 import dev.padjokej.registry.ModItems;
+import dev.padjokej.registry.ModParticles;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.Entity;
@@ -17,6 +19,7 @@ import net.minecraft.world.level.gamerules.GameRules;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.HitResult;
+import net.minecraft.world.phys.Vec3;
 
 public class ThrowableShimmer extends ThrowableItemProjectile {
     public ThrowableShimmer(final EntityType<? extends ThrowableShimmer> type, final Level level) {
@@ -65,7 +68,14 @@ public class ThrowableShimmer extends ThrowableItemProjectile {
     protected void onHit(HitResult hitResult) {
         super.onHit(hitResult);
 
-        if (level() instanceof ServerLevel) {
+        Level level = level();
+        Vec3 pos = hitResult.getLocation();
+
+        level.addParticle(ModParticles.SHIMMER_EXPLOSION, pos.x, pos.y + 1.1, pos.z, 0.1, 0.5, 0.1);
+        level.addParticle(ModParticles.SHIMMER_EXPLOSION, pos.x, pos.y + 1.1, pos.z, 0.1, 0.5, 0.1);
+        level.addParticle(ModParticles.SHIMMER_EXPLOSION, pos.x, pos.y + 1.1, pos.z, 0.1, 0.5, 0.1);
+
+        if (level instanceof ServerLevel) {
             this.discard();
         }
     }

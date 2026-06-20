@@ -43,6 +43,21 @@ public class ShimmerEffect extends MobEffect {
         applySlowMotion(entity, amplifier, false);
     }
 
+    @Override
+    public boolean applyEffectTick(final ServerLevel level, final LivingEntity mob, final int amplification) {
+        if (mob.getHealth() < mob.getMaxHealth()) {
+            mob.heal(1.0F);
+        }
+
+        return true;
+    }
+
+    @Override
+    public boolean shouldApplyEffectTickThisTick(final int tickCount, final int amplification) {
+        int interval = 50 >> amplification;
+        return interval == 0 || tickCount % interval == 0;
+    }
+
     private void applySlowMotion(LivingEntity entity, int amplifier, boolean apply) {
         if (!(entity instanceof Player))
             return;

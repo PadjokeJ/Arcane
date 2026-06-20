@@ -1,6 +1,7 @@
 package dev.padjokej.registry;
 
 import dev.padjokej.Arcane;
+import dev.padjokej.shimmer.entities.ThrowableBombEntity;
 import dev.padjokej.shimmer.entities.ThrowableShimmer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.EntityRenderers;
@@ -17,6 +18,15 @@ public class ModEntities {
     public static final EntityType<ThrowableShimmer> SHIMMER =
             register("shimmer",
                     EntityType.Builder.<ThrowableShimmer>of(ThrowableShimmer::new, MobCategory.MISC)
+                            .noLootTable()
+                            .sized(0.25F, 0.25F)
+                            .clientTrackingRange(4)
+                            .updateInterval(10),
+                    ThrownItemRenderer::new);
+
+    public static final EntityType<ThrowableBombEntity> CHEMTECH_BOMB =
+            register("chemtech_bomb",
+                    EntityType.Builder.<ThrowableBombEntity>of(ThrowableBombEntity::new, MobCategory.MISC)
                             .noLootTable()
                             .sized(0.25F, 0.25F)
                             .clientTrackingRange(4)
