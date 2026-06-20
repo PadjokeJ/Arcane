@@ -1,3 +1,7 @@
+/**
+* Code by https://github.com/liixini - FIXME : update license once they contact me
+*/
+
 #version 330
 
 uniform sampler2D InSampler;
@@ -13,59 +17,78 @@ layout(std140) uniform SamplerInfo {
 
 out vec4 fragColor;
 
-float hash12(vec2 p) {
-    vec3 p3 = fract(vec3(p.xyx) * 0.1031);
-    p3 += dot(p3, p3.yzx + 33.33);
-    return fract((p3.x + p3.y) * p3.z);
+// Wizardry I found online at https://github.com/liixini/shaders/blob/main/smoke/open.glsl
+
+float hash(vec2 p) {
+    return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453);
 }
 
 float noise(vec2 p) {
     vec2 i = floor(p);
     vec2 f = fract(p);
-    vec2 u = f*f*(3.0-2.0*f);
-
-    float a = hash12(i);
-    float b = hash12(i + vec2(1.0, 0.0));
-    float c = hash12(i + vec2(0.0, 1.0));
-    float d = hash12(i + vec2(1.0, 1.0));
-
-    return mix(mix(a,b,u.x), mix(c,d,u.x), u.y);
+    f = f * f * (3.0 - 2.0 * f);
+    float a = hash(i);
+    float b = hash(i + vec2(1.0, 0.0));
+    float c = hash(i + vec2(0.0, 1.0));
+    float d = hash(i + vec2(1.0, 1.0));
+    return mix(mix(a, b, f.x), mix(c, d, f.x), f.y);
 }
 
 float fbm(vec2 p) {
     float v = 0.0;
-    float a = 0.55;
-    for (int i = 0; i < 5; i++) {
-        v += a * noise(p);
+    float amp = 0.5;
+    for (int i = 0; i < 6; i++) {
+        v += amp * noise(p);
         p *= 2.0;
-        a *= 0.55;
+        amp *= 0.5;
     }
     return v;
+}
+
+float warpedFbm(vec2 p, float t) {
+    vec2 q = vec2(fbm(p + vec2(0.0, 0.0)),
+            fbm(p + vec2(5.2, 1.3)));
+
+    vec2 r = vec2(fbm(p + 6.0 * q + vec2(1.7, 9.2) + 0.25 * t),
+            fbm(p + 6.0 * q + vec2(8.3, 2.8) + 0.22 * t));
+
+    vec2 s = vec2(fbm(p + 5.0 * r + vec2(3.1, 7.4) + 0.18 * t),
+            fbm(p + 5.0 * r + vec2(6.7, 0.9) + 0.2 * t));
+
+    return fbm(p + 6.0 * s);
 }
 
 void main(){
     vec4 shimmerColor = vec4(0.765, 0.071, 0.959, 1.0);
     vec2 sizeRatio = OutSize / InSize;
 
-    float time = GameTime * 1000.0;
+    float p = GameTime * 250.0;
 
-    vec4 diffuseColor = texture(InSampler, texCoord);
+    vec2 uv = texCoord;
+    float seed = p * 100.0;
 
-    float d = min(texCoord.x, 1.0 - texCoord.x);
+    float t = p * 12.0 + seed;
 
-    float band = smoothstep(0.22, 0.0, d);
+    float smokeSeed = 0.1235;
 
-    vec2 p = texCoord.xy;
-    p.x = (texCoord.x - 0.5) * 2.0;
+    float fluid = warpedFbm(uv * 2.0 + smokeSeed, p + smokeSeed);
 
-    float flameRise = p.y * 7.0 - time * 2.2;
-    float n = fbm(vec2(p.x * 2.8 * time, flameRise + p.x));
+    vec2 center = uv - 0.5;
+    float dist = length(center * vec2(1.0, 1.0));
 
-    float flame = smoothstep(0.55, 0.06, n + 0.22 * sin(flameRise * 1.9));
-    flame *= band;
+    float appear = (1.0 - dist * 1.2) + (1.0 - fluid) * 0.7;
+    float edgeStrength = smoothstep(appear + 0.5, appear - 0.5, 0.6);
 
-    float k = pow(flame, 1.0);
+    vec2 wq = vec2(fbm(uv * 2.0),
+            fbm(uv * 2.0 + vec2(5.2, t * 0.2)));
+    vec2 wr = vec2(fbm(uv * 2.0 + 4.0 * wq + vec2(1.7, 9.2)),
+            fbm(uv * 2.0 + 4.0 * wq + vec2(8.3, 2.8)));
+    vec2 warpedUV = uv + (wr - 0.5) * 0.01;
 
-    vec4 outColor = mix(diffuseColor, shimmerColor, k);
+    vec2 tex_coords = texCoord * warpedUV;
+
+    vec4 color = texture(InSampler, warpedUV);
+    vec4 outColor = mix(shimmerColor, color, edgeStrength);
+
     fragColor = vec4(outColor.rgb, 1.0);
 }
