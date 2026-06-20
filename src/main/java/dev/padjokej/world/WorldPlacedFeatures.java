@@ -41,7 +41,7 @@ public class WorldPlacedFeatures {
 
         register(context, ZAUN_FLOWER_PATCH_PLACED_KEY, configuredFeatures.getOrThrow(WorldConfiguredFeatures.ZAUN_FLOWER_PATCH),
                 List.of(
-                        CountPlacement.of(4),
+                        CountPlacement.of(2),
                         BiomeFilter.biome(),
                         RandomOffsetPlacement.ofTriangle(4, 3),
                         InSquarePlacement.spread(),

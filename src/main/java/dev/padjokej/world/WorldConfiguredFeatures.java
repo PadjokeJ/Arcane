@@ -40,9 +40,9 @@ public class WorldConfiguredFeatures {
                         ConstantInt.of(1),
                         0.1F,
                         5,
-                        0.4F,
+                        0.1F,
                         UniformInt.of(4, 7),
-                        0.3F));
+                        0.2F));
     }
 
     private static <FC extends FeatureConfiguration, F extends Feature<FC>> void register(BootstrapContext<ConfiguredFeature<?, ?>> context,

@@ -65,9 +65,8 @@ void main(){
     float p = GameTime * 250.0;
 
     vec2 uv = texCoord;
-    float seed = p * 100.0;
 
-    float t = p * 12.0 + seed;
+    float t = p * 112.0;
 
     float smokeSeed = 0.1235;
 
