@@ -44,7 +44,7 @@ public class ShimmerEffect extends MobEffect {
     }
 
     @Override
-    public boolean applyEffectTick(final ServerLevel level, final LivingEntity mob, final int amplification) {
+    public boolean applyEffectTick(ServerLevel level, LivingEntity mob, int amplification) {
         if (mob.getHealth() < mob.getMaxHealth()) {
             mob.heal(1.0F);
         }
@@ -53,7 +53,7 @@ public class ShimmerEffect extends MobEffect {
     }
 
     @Override
-    public boolean shouldApplyEffectTickThisTick(final int tickCount, final int amplification) {
+    public boolean shouldApplyEffectTickThisTick(int tickCount, int amplification) {
         int interval = 50 >> amplification;
         return interval == 0 || tickCount % interval == 0;
     }
@@ -62,11 +62,12 @@ public class ShimmerEffect extends MobEffect {
         if (!(entity instanceof Player))
             return;
 
+
         Level level = entity.level();
         if (!(level instanceof ServerLevel serverLevel))
             return;
 
-        if (serverLevel.players().size() != 1) // makeshift .isSinglePlayer
+        if (apply && serverLevel.players().size() != 1) // makeshift .isSinglePlayer
             return;
 
         TickRateManager trm = serverLevel.tickRateManager();

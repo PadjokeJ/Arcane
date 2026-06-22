@@ -24,7 +24,7 @@ public interface ModArmorMaterials {
 
     public static class ChemtechSuit implements ModArmorMaterials {
         public static final String NAME = "chemtech_suit";
-        public static final int BASE_DURABILITY = 12;
+        public static final int BASE_DURABILITY = 24;
 
         public static final ResourceKey<EquipmentAsset> MATERIAL_KEY =
                 ResourceKey.create(EquipmentAssets.ROOT_ID, Arcane.id(NAME));

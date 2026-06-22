@@ -2,6 +2,7 @@ package dev.padjokej.registry;
 
 import dev.padjokej.Arcane;
 import dev.padjokej.shimmer.items.Bomb;
+import dev.padjokej.shimmer.items.ChemtechArmor;
 import dev.padjokej.shimmer.items.ShimmerVial;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -22,7 +23,7 @@ public class ModItems {
             register("chemtech_bomb", Bomb::new, new Item.Properties());
 
     public static final Map<ArmorType, Item> CHEMTECH_SUIT =
-            registerArmor(Item::new, ModArmorMaterials.ChemtechSuit::new);
+            registerArmor(ChemtechArmor::new, ModArmorMaterials.ChemtechSuit::new);
 
     public static <T extends Item> T register(String name, Function<Item.Properties, T> itemFactory, Item.Properties settings) {
         ResourceKey<Item> itemKey = ResourceKey.create(Registries.ITEM, Arcane.id(name));
