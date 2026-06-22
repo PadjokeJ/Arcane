@@ -14,6 +14,11 @@
       ],
       "output": "swap",
       "uniforms": {
+        "ShimmerConfig": [{
+          "name": "DisplaceStrength",
+          "type": "float",
+          "value": 1
+        }]
       }
     },
     {

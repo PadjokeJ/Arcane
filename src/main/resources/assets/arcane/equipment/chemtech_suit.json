@@ -1,0 +1,14 @@
+{
+  "layers": {
+    "humanoid": [
+      {
+        "texture": "arcane:chemtech_suit"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "arcane:chemtech_suit"
+      }
+    ]
+  }
+}

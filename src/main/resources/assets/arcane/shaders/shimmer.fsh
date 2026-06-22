@@ -37,6 +37,10 @@ layout(std140) uniform SamplerInfo {
     vec2 InSize;
 };
 
+layout(std140) uniform ShimmerConfig {
+    float DisplaceStrength;
+};
+
 out vec4 fragColor;
 
 // Wizardry I found online at https://github.com/liixini/shaders/blob/main/smoke/open.glsl
@@ -98,13 +102,13 @@ void main(){
     float dist = length(center * vec2(1.0, 1.0));
 
     float appear = (1.0 - dist * 1.2) + (1.0 - fluid) * 0.7;
-    float edgeStrength = smoothstep(appear + 0.5, appear - 0.5, 0.6);
+    float edgeStrength = smoothstep(appear + 0.5, appear - 0.5, 0.5);
 
     vec2 wq = vec2(fbm(uv * 2.0),
             fbm(uv * 2.0 + vec2(5.2, t * 0.2)));
     vec2 wr = vec2(fbm(uv * 2.0 + 4.0 * wq + vec2(1.7, 9.2)),
             fbm(uv * 2.0 + 4.0 * wq + vec2(8.3, 2.8)));
-    vec2 warpedUV = uv + (wr - 0.5) * 0.01;
+    vec2 warpedUV = uv + DisplaceStrength * 0.01 * (wr - 0.5);
 
     vec2 tex_coords = texCoord * warpedUV;
 
