@@ -23,6 +23,10 @@ public class ArcaneModelGenerator extends FabricModelProvider {
     public void generateItemModels(ItemModelGenerators itemModelGenerators) {
         itemModelGenerators.generateFlatItem(ModItems.SHIMMER_VIAL, ModelTemplates.FLAT_ITEM);
         itemModelGenerators.generateFlatItem(ModItems.CHEMTECH_BOMB, ModelTemplates.FLAT_ITEM);
+
+        ModItems.CHEMTECH_SUIT.forEach((_, item) -> {
+            itemModelGenerators.generateFlatItem(item, ModelTemplates.FLAT_ITEM);
+        });
     }
 
     @Override
