@@ -2,5 +2,9 @@
   "block.arcane.zaun_flower": "Zaun Flower",
   "effect.arcane.shimmer": "Shimmer",
   "item.arcane.chemtech_bomb": "Chemtech Bomb",
+  "item.arcane.chemtech_suit_boots": "Chemtech Boots",
+  "item.arcane.chemtech_suit_chestplate": "Chemtech Chestplate",
+  "item.arcane.chemtech_suit_helmet": "Chemtech Helmet",
+  "item.arcane.chemtech_suit_leggings": "Chemtech Leggings",
   "item.arcane.shimmer_vial": "Shimmer Vial"
 }
