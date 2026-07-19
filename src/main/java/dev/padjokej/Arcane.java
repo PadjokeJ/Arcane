@@ -4,6 +4,7 @@ import dev.padjokej.registry.*;
 import dev.padjokej.world.gen.WorldGenerator;
 import net.fabricmc.api.ModInitializer;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.resources.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,6 +21,9 @@ public class Arcane implements ModInitializer {
     @Override
     public void onInitialize() {
         LOGGER.info("Initialize " + MOD_ID);
+
+        ShaderRegistry.register(() -> Minecraft.getInstance().player != null && Minecraft.getInstance().player.hasEffect(ModEffects.SHIMMER),
+                Arcane.id("shimmer"));
 
         ModBlocks.registerAll();
         ModItems.registerAll();

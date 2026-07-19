@@ -4,9 +4,6 @@ import dev.padjokej.registry.ModEntities;
 import dev.padjokej.registry.ModItems;
 import dev.padjokej.registry.ModParticles;
 import dev.padjokej.utils.LevelUtils;
-import net.minecraft.core.BlockPos;
-import net.minecraft.core.particles.ParticleOptions;
-import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.Entity;
@@ -50,7 +47,7 @@ public class ThrowableBombEntity extends ThrowableItemProjectile {
         Entity entity = hitResult.getEntity();
 
         entity.hurt(this.damageSources().thrown(this, this.getOwner()), 5f);
-        explode((ServerLevel) entity.level());
+        explode((ServerLevel) this.level());
     }
 
     @Override
